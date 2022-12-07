@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class SavedWordsActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private ArrayList<Words> wordsList;
+    private ArrayList<Words> wordsData;
     private SpanglishAdapter spanglishAdapter;
 
     @Override
@@ -28,10 +28,10 @@ public class SavedWordsActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // Initialize ArrayList that will contain the data
-        wordsList = new ArrayList<>();
+        wordsData = new ArrayList<>();
 
         // Initialize adapter and set it to the recyclerview
-        spanglishAdapter = new SpanglishAdapter(this, wordsList);
+        spanglishAdapter = new SpanglishAdapter(this, wordsData);
         recyclerView.setAdapter(spanglishAdapter);
 
         initializeData();
@@ -44,7 +44,7 @@ public class SavedWordsActivity extends AppCompatActivity {
         String[] palabras = getResources().getStringArray(R.array.palabra_list);
         String[] uses = getResources().getStringArray(R.array.use_list);
 
-        wordsList.clear();
+        wordsData.clear();
     }
 
 

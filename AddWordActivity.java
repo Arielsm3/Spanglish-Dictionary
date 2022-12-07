@@ -13,16 +13,21 @@ import java.util.ArrayList;
 
 public class AddWordActivity extends AppCompatActivity {
 
+    private ArrayList<Words> wordsData;
+    private SpanglishAdapter spanglishAdapter;
+
     private TextView enterWordView, enterDefView, enterPalabraView, enterUseView;
     private EditText enterWordEdit, enterDefEdit, enterPalabraEdit, enterUseEdit;
 
-    private ArrayList<Words> wordsList;
-
+    protected static final String KEY_EXTRA_MESSAGE = "com.example.spanglishdictionary.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_word);
+
+        // Initialize array list that will contain words data
+        wordsData = new ArrayList<>();
 
         // Initialize private TextView fields with their corresponding TextViews
         enterWordView = findViewById(R.id.enterWordView);
@@ -57,12 +62,24 @@ public class AddWordActivity extends AppCompatActivity {
         return enterUseEdit.getText().toString();
     }
 
-    void addNewData() {
-        wordsList.add( new Words(addNewWord(),
+    private void addNewData() {
+        wordsData.add( new Words(
+                addNewWord(),
                 addNewDef(),
                 addNewPalabra(),
-                addNewUse())
-        );
+                addNewUse()
+        ));
     }
 
+    public void addNewWordToList(View view) { // Send new word data to SavedWordsActivity
+        Intent intent = new Intent(this, SavedWordsActivity.class);
+        intent.putExtra(KEY_EXTRA_MESSAGE, wordsData);
+    }
+
+    public void clearData(View view) {
+        enterWordEdit.getText().clear();
+        enterDefEdit.getText().clear();
+        enterPalabraEdit.getText().clear();
+        enterUseEdit.getText().clear();
+    }
 }
