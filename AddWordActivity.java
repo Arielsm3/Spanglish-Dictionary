@@ -1,16 +1,22 @@
 package com.example.spanglishdictionary;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class AddWordActivity extends AppCompatActivity {
 
     private TextView enterWordView, enterDefView, enterPalabraView, enterUseView;
     private EditText enterWordEdit, enterDefEdit, enterPalabraEdit, enterUseEdit;
+
+    private ArrayList<Words> wordsList;
 
 
     @Override
@@ -30,22 +36,33 @@ public class AddWordActivity extends AppCompatActivity {
         enterPalabraEdit = findViewById(R.id.enterPalabraEdit);
         enterUseEdit = findViewById(R.id.enterUseEdit);
 
-        //
-
+        // Add new data to ArrayList Words method call
+        addNewData();
 
     }
 
-
-    // Method to Send Data Items (new word info) to MainActivity here
-    private void sendData() {
-        Intent intent = new Intent(this, MainActivity.class);
-        // Word data info below
+    private String addNewWord() {
+        return enterWordEdit.getText().toString();
     }
 
-
-    // Method to store new Data (word info) here
-    private void saveData() {
-        Intent intent = new Intent(this, SavedWordsActivity.class);
-        // Word data info below
+    private String addNewDef() {
+        return enterDefEdit.getText().toString();
     }
+
+    private String addNewPalabra() {
+        return enterPalabraEdit.getText().toString();
+    }
+
+    private String addNewUse() {
+        return enterUseEdit.getText().toString();
+    }
+
+    void addNewData() {
+        wordsList.add( new Words(addNewWord(),
+                addNewDef(),
+                addNewPalabra(),
+                addNewUse())
+        );
+    }
+
 }
