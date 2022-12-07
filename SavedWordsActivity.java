@@ -39,9 +39,13 @@ public class SavedWordsActivity extends AppCompatActivity {
 
     private void initializeData() {
         // Retrieve data items from XML array file
-        String[] wordsList = getResources().getStringArray(R.array.word_list);
-        String[] defList = getResources().getStringArray(R.array.def_list);
-        String[] palabrasList = getResources().getStringArray(R.array.palabra_list);
-        String[] useList = getResources().getStringArray(R.array.use_list);
+        String[] words = getResources().getStringArray(R.array.word_list);
+        String[] definitions = getResources().getStringArray(R.array.def_list);
+        String[] palabras = getResources().getStringArray(R.array.palabra_list);
+        String[] uses = getResources().getStringArray(R.array.use_list);
+
+        wordsList.clear();
     }
+
+
 }
