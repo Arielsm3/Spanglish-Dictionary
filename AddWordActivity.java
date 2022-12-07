@@ -14,7 +14,6 @@ import java.util.ArrayList;
 public class AddWordActivity extends AppCompatActivity {
 
     private ArrayList<Words> wordsData;
-    private SpanglishAdapter spanglishAdapter;
 
     private TextView enterWordView, enterDefView, enterPalabraView, enterUseView;
     private EditText enterWordEdit, enterDefEdit, enterPalabraEdit, enterUseEdit;
