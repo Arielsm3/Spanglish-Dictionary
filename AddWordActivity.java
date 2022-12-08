@@ -42,12 +42,15 @@ public class AddWordActivity extends AppCompatActivity {
         enterPalabraEdit = (EditText) findViewById(R.id.enterPalabraEdit);
         enterUseEdit = (EditText) findViewById(R.id.enterUseEdit);
 
+        // Add text strings to TextViews
+        loadTextViews();
+
         // Add new data to ArrayList Words method call
         addNewData();
 
     }
 
-    private void addViews() {
+    private void loadTextViews() {
         String enterWord = getString(R.string.enter_word);
         String enterDef = getString(R.string.enter_definition);
         String enterPalabra = getString(R.string.enter_translation);

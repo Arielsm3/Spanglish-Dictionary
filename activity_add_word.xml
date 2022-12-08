@@ -31,7 +31,7 @@
             android:id="@+id/enterWordView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Enter word:"
+            android:text="@string/enter_word"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -47,7 +47,7 @@
             android:id="@+id/enterDefView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Enter definition:" />
+            android:text="@string/enter_definition" />
 
         <EditText
             android:id="@+id/enterDefEdit"
@@ -61,7 +61,7 @@
             android:id="@+id/enterPalabraView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Enter translation to Spanish here:" />
+            android:text="@string/enter_translation" />
 
         <EditText
             android:id="@+id/enterPalabraEdit"
@@ -74,7 +74,7 @@
             android:id="@+id/enterUseView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Enter sentence example using word:" />
+            android:text="@string/enter_use" />
 
         <EditText
             android:id="@+id/enterUseEdit"
@@ -86,12 +86,19 @@
             android:inputType="text"/>
         
         <Button
+            android:id="@+id/addNewWordButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:onClick="addNewWordToList"
+            />
         
         <Button
+            android:id="@+id/clearDataButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="Clear"
+            android:onClick="clearData"/>
 
     </LinearLayout>
 
