@@ -20,6 +20,8 @@ public class AddWordActivity extends AppCompatActivity {
 
     protected static final String KEY_EXTRA_MESSAGE = "com.example.spanglishdictionary.MESSAGE";
 
+    private String stringWord, stringDef, stringPalabra, stringUse;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,39 +37,35 @@ public class AddWordActivity extends AppCompatActivity {
         enterUseView = findViewById(R.id.enterUseView);
 
         // Initialize private EditText fields with their corresponding EditTexts
-        enterWordEdit = findViewById(R.id.enterWordEdit);
-        enterDefEdit = findViewById(R.id.enterDefEdit);
-        enterPalabraEdit = findViewById(R.id.enterPalabraEdit);
-        enterUseEdit = findViewById(R.id.enterUseEdit);
+        enterWordEdit = (EditText) findViewById(R.id.enterWordEdit);
+        enterDefEdit = (EditText) findViewById(R.id.enterDefEdit);
+        enterPalabraEdit = (EditText) findViewById(R.id.enterPalabraEdit);
+        enterUseEdit = (EditText) findViewById(R.id.enterUseEdit);
 
         // Add new data to ArrayList Words method call
         addNewData();
 
     }
 
-    private String addNewWord() {
-        return enterWordEdit.getText().toString();
-    }
+    private void addViews() {
+        String enterWord = getString(R.string.enter_word);
+        String enterDef = getString(R.string.enter_definition);
+        String enterPalabra = getString(R.string.enter_translation);
+        String enterUse = getString(R.string.enter_use);
 
-    private String addNewDef() {
-        return enterDefEdit.getText().toString();
-    }
-
-    private String addNewPalabra() {
-        return enterPalabraEdit.getText().toString();
-    }
-
-    private String addNewUse() {
-        return enterUseEdit.getText().toString();
+        enterWordView.setText(enterWord);
+        enterDefView.setText(enterDef);
+        enterPalabraView.setText(enterPalabra);
+        enterUseView.setText(enterUse);
     }
 
     private void addNewData() {
-        wordsData.add( new Words(
-                addNewWord(),
-                addNewDef(),
-                addNewPalabra(),
-                addNewUse()
-        ));
+        stringWord = enterWordEdit.getText().toString();
+        stringDef = enterDefEdit.getText().toString();
+        stringPalabra = enterPalabraEdit.getText().toString();
+        stringUse = enterUseEdit.getText().toString();
+
+        wordsData.add( new Words(stringWord, stringDef, stringPalabra, stringUse));
     }
 
     public void addNewWordToList(View view) { // Send new word data to SavedWordsActivity
